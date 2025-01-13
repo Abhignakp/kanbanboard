@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="drag.js" defer></script>
+    <script src="todo.js" defer></script>
+  </head>
+  <body>
+    <div class="board">
+      <!-- Task Form -->
+      <form id="todo-form" class="task-form">
+        <input type="text" placeholder="Enter Task..." id="todo-input" />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <!-- Kanban Board -->
+      <div id="kanban-board" class="lanes">
+        <!-- Default Swim Lane: To-Do -->
+        <div class="swim-lane" id="todo-lane">
+          <h3 class="heading">To-Do</h3>
+          <ul class="task-list" id="todo-list"></ul>
+        </div>
+
+        <!-- Default Swim Lane: Doing -->
+        <div class="swim-lane" id="doing-lane">
+          <h3 class="heading">Doing</h3>
+          <ul class="task-list" id="doing-list"></ul>
+        </div>
+
+        <!-- Default Swim Lane: Done -->
+        <div class="swim-lane" id="done-lane">
+          <h3 class="heading">Done</h3>
+          <ul class="task-list" id="done-list"></ul>
+        </div>
+      </div>
+
+      <!-- Add New Swim Lane Button -->
+      <button id="add-lane">Add New Lane</button>
+    </div>
+  </body>
+</html>

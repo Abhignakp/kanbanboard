@@ -1,0 +1,99 @@
+/* Basic Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: light grey;
+  margin: 0;
+  padding: 0;
+}
+
+/* Board Layout */
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.lanes {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.swim-lane {
+  background-color: lightpink;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 30%;
+  padding: 10px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 1.2em;
+  color: #007bff;
+  text-align: center;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  background-color: lightcoral;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Form Styling */
+.task-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid lightsalmon;
+  width: 300px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Add Swim Lane Button */
+#add-lane {
+  padding: 10px 20px;
+  background-color: rebeccapurple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#add-lane:hover {
+  background-color: rebeccapurple;
+}
