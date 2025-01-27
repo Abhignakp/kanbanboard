@@ -29,9 +29,9 @@ droppables.forEach((zone) => {
     const curTask = document.querySelector(".is-dragging");
 
     if (!bottomTask) {
-      zone.appendChild(curTask);
+      zone.querySelector(".task-list").appendChild(curTask);
     } else {
-      zone.insertBefore(curTask, bottomTask);
+      zone.querySelector(".task-list").insertBefore(curTask, bottomTask);
     }
   });
 
@@ -51,12 +51,29 @@ droppables.forEach((zone) => {
   });
 });
 
+// Function to create a delete button
+const createDeleteButton = () => {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.textContent = "✖";
+  deleteBtn.addEventListener("click", (e) => {
+    const task = e.target.closest(".task");
+    task.remove();
+    saveTasks(); // Save state after deleting a task
+  });
+  return deleteBtn;
+};
+
 // Handle the task creation and drag behavior
 const handleNewTask = (taskText, laneId) => {
   const task = document.createElement("li");
   task.classList.add("task");
   task.setAttribute("draggable", "true");
   task.textContent = taskText;
+
+  const deleteBtn = createDeleteButton();
+  task.appendChild(deleteBtn);
+
   task.addEventListener("dragstart", (e) => {
     task.classList.add("is-dragging");
   });
@@ -103,11 +120,10 @@ addLaneBtn.addEventListener("click", () => {
     const curTask = document.querySelector(".is-dragging");
 
     if (!bottomTask) {
-      newLane.appendChild(curTask);
+      newLane.querySelector(".task-list").appendChild(curTask);
     } else {
-      newLane.insertBefore(curTask, bottomTask);
+      newLane.querySelector(".task-list").insertBefore(curTask, bottomTask);
     }
-    saveTasks(); // Save tasks after drop
   });
 
   // Save tasks whenever a change occurs
@@ -124,7 +140,7 @@ const saveTasks = () => {
 
   lanes.forEach((lane) => {
     const laneId = lane.id;
-    const tasks = Array.from(lane.querySelectorAll(".task")).map((task) => task.textContent);
+    const tasks = Array.from(lane.querySelectorAll(".task")).map((task) => task.textContent.trim());
     tasksState[laneId] = tasks;
   });
 
@@ -146,3 +162,4 @@ window.addEventListener("load", () => {
     });
   }
 });
+
