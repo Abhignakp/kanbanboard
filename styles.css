@@ -92,7 +92,23 @@ button:hover {
   border-radius: 5px;
   margin-top: 20px;
   cursor: pointer;
+  
 }
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
 
 #add-lane:hover {
   background-color: rebeccapurple;
